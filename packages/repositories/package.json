@@ -1,0 +1,4 @@
+{
+  "name": "@acme/repositories",
+  "main": "index.ts"
+}

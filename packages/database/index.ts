@@ -1,0 +1,1 @@
+export { mongoClient } from "./mongo";
