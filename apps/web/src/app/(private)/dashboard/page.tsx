@@ -6,20 +6,20 @@ import { useSearchParams } from "next/navigation";
 import { useState, useCallback } from "react";
 import { cn } from "@/utils";
 import Sidebar from "@/components/(Private)/Dashboard/sidebar";
-import { DocumentProps } from "@acme/interfaces";
+import { Document } from "@prisma/client";
 import { getTemplates } from "@/hooks/getTemplates";
 
 export default function Dashboard() {
   const [isSelected, setIsSelected] = useState(false);
   const [currentTemplate, setCurrentTemplate] = useState<string>("");
   const [currentDocument, setCurrentDocument] = useState<
-    DocumentProps | undefined
+    Document | undefined
   >();
 
   const searchParams = useSearchParams();
   const query = searchParams.get("q") || "";
 
-  const handleRecordClick = useCallback((document: DocumentProps) => {
+  const handleRecordClick = useCallback((document: Document) => {
     setCurrentDocument(document);
     setIsSelected(true);
   }, []);

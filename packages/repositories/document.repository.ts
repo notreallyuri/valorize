@@ -25,9 +25,7 @@ interface RepositoryInterface {
 }
 
 class Repository {
-  private readonly db: PrismaClient;
-
-  constructor(db: PrismaClient) {}
+  constructor(private readonly db: PrismaClient) {}
 
   private handlePrismaError(error: any): void {
     if (error instanceof PrismaClientKnownRequestError)

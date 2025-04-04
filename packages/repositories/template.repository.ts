@@ -1,8 +1,7 @@
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { prisma } from "@acme/utils";
 import { PrismaClient } from "@prisma/client";
 import { Template } from "@prisma/client";
-import { AppError, PrismaError } from "@acme/error";
+import { AppError } from "@acme/error";
 import { TemplateStructure, COLLECTIONS } from "@acme/interfaces";
 import { handleRepositoryError } from "./utility";
 import { mongoClient } from "@acme/database";
@@ -10,12 +9,6 @@ import { ObjectId } from "mongodb";
 
 export class Repository {
   constructor(private readonly db: PrismaClient) {}
-
-  private handlePrismaError(error: any): void {
-    if (error instanceof PrismaClientKnownRequestError)
-      throw new PrismaError(error);
-    else throw error;
-  }
 
   async create(
     templateName: string,
@@ -190,3 +183,5 @@ export class Repository {
 }
 
 export const templateRepository = new Repository(prisma);
+
+

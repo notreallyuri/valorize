@@ -9,6 +9,11 @@ export interface TemplateStructure {
     | { [key: string]: "string" | "number" | "boolean" | "array" };
 }
 
+export interface MongoTemplate {
+  _id?: ObjectId;
+  structure: TemplateStructure;
+}
+
 export interface DocumentStructure {
   _id?: ObjectId;
   structure: {
@@ -19,11 +24,6 @@ export interface DocumentStructure {
       | any[]
       | { [key: string]: string | number | boolean | any[] };
   };
-}
-
-export interface MongoTemplate {
-  _id?: ObjectId;
-  structure: TemplateStructure;
 }
 
 export interface MongoDocument {

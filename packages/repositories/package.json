@@ -1,4 +1,7 @@
 {
   "name": "@acme/repositories",
-  "main": "index.ts"
+  "main": "index.ts",
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }

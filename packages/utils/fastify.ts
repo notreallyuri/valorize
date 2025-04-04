@@ -9,9 +9,12 @@ import { mongodbPlugin } from "./mongoPlugin";
 import { AppError } from "@acme/error";
 import { createContext } from "./context";
 import { AppRouter, appRouter } from "@acme/routes";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const jwtSecret = process.env.JWT_SECRET;
-const clientUrl = process.env.CLIENT_URL;
+const clientUrl = process.env.CLIENT_URL || "http://localhost:3000";
 
 if (!jwtSecret || !clientUrl)
   throw new AppError({
