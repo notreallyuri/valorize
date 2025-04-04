@@ -52,7 +52,7 @@ model Template {
 
 model Document {
   id           Int     @id @default(autoincrement()) @map("document_id")
-  documentName String
+  documentName String  @unique
   currentState State   @default(OPEN)
   structureId  String?
 

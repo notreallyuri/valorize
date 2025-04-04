@@ -1,11 +1,10 @@
 import { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify";
 import { prisma } from "@acme/utils";
 
-export const createContext = async ({
-  req,
-  res,
-}: CreateFastifyContextOptions) => {
+export const createContext = async (opts: CreateFastifyContextOptions) => {
   try {
+    const { req, res } = opts;
+
     const tokenPayload = await req.jwtVerify<{
       id: string;
       email: string;
@@ -31,6 +30,7 @@ export const createContext = async ({
     console.log("Authenticated user", user);
     return { req, res, user };
   } catch (error) {
+    const { req, res } = opts;
     console.error("JWT verification failed:", error);
     return { req, res, user: null };
   }

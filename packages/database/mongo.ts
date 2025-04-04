@@ -20,7 +20,7 @@ class MongoDBClient {
     if (this.client) return;
 
     try {
-      const uri = process.env.MONGODB_URI || " ";
+      const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/";
       const dbName = process.env.MONGODB_DB_NAME || "my-db";
 
       this.client = new MongoClient(uri);

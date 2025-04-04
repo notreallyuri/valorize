@@ -1,8 +1,8 @@
 export {
-  TemplateStructure,
-  DocumentStructure,
-  MongoTemplate,
-  MongoDocument,
+  type DocumentStructure,
+  type MongoDocument,
+  type TemplateStructure,
+  type MongoTemplate,
   COLLECTIONS,
-} from "./mongo.interfaces";
-export { User } from "./prisma.interface";
+} from "./mongo";
+export { type PrismaUser } from "./prisma";
